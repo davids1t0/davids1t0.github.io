@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Reproductor de Música</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      text-align: center;
+      padding-top: 80px;
+      margin: 0;
+    }
+    h1 {
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 2px #000;
+    }
+    .player {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 15px;
+      display: inline-block;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+    }
+    iframe {
+      border-radius: 10px;
+      width: 360px;
+      height: 215px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎶 Mi canción favorita: El Dueño Del Palenque 🎶</h1>
+  <div class="player">
+    <iframe 
+      src="https://www.youtube.com/embed/CZIwj-ytRHo?autoplay=0&controls=1"
+      frameborder="0" 
+      allow="autoplay; encrypted-media" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</body>
+</html>
