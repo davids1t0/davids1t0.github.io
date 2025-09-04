@@ -3,32 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MiniCine Moderno</title>
+<title>MiniCine Minimal</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto',sans-serif; }
   body { background:#0d0d0d; color:#fff; }
-  header { background:#111; padding:20px; text-align:center; font-size:28px; font-weight:bold; letter-spacing:2px; }
-  .carousel-container { padding:20px; overflow-x:auto; white-space:nowrap; }
-  .movie-card { display:inline-block; width:180px; margin-right:15px; border-radius:10px; position:relative; cursor:pointer; transition:0.3s; }
-  .movie-card img { width:100%; height:270px; border-radius:10px; object-fit:cover; }
-  .movie-card:hover { transform:scale(1.05); box-shadow:0 5px 20px rgba(0,255,0,0.5); }
-  .movie-title { position:absolute; bottom:10px; left:10px; right:10px; font-size:14px; font-weight:bold; text-shadow: 0 0 5px #000; }
-  #player-container { display:flex; flex-direction:column; align-items:center; margin:20px; }
-  #player { width:100%; max-width:900px; height:500px; border-radius:10px; overflow:hidden; box-shadow:0 5px 20px rgba(0,255,0,0.3); }
+  header { background:#111; padding:20px; text-align:center; font-size:28px; font-weight:bold; letter-spacing:1px; }
+  .movie-list { max-width:800px; margin:20px auto; }
+  .movie-item { padding:15px 20px; border-bottom:1px solid #222; cursor:pointer; transition:0.2s; }
+  .movie-item:hover { background:#1a1a1a; color:#1DB954; }
+  .movie-title { font-size:18px; font-weight:bold; }
+  .movie-info { font-size:14px; color:#aaa; margin-top:3px; }
+  #player-container { max-width:900px; margin:30px auto; }
+  #player { width:100%; height:500px; border-radius:10px; overflow:hidden; }
   @media(max-width:768px){
-    .movie-card { width:140px; }
-    .movie-card img { height:210px; }
     #player { height:300px; }
+    .movie-title { font-size:16px; }
   }
 </style>
 </head>
 <body>
 
-<header>MiniCine Moderno</header>
+<header>MiniCine</header>
 
-<div class="carousel-container" id="movieList">
-  <!-- Miniaturas de películas -->
+<div class="movie-list" id="movieList">
+  <!-- Lista de películas -->
 </div>
 
 <div id="player-container">
@@ -37,40 +36,20 @@
 
 <script>
 const movies = [
-  {
-    id: 'Taz5kwB8s8k',
-    title: 'Metrópolis',
-    thumb: 'https://upload.wikimedia.org/wikipedia/en/5/50/Metropolis_1927_film.jpg'
-  },
-  {
-    id: 'sZVL__aUamE',
-    title: 'Noche de muertos',
-    thumb: 'https://upload.wikimedia.org/wikipedia/en/2/21/Night_of_the_Living_Dead_%281968_film%29.jpg'
-  },
-  {
-    id: 'PxE_3AZxdLc',
-    title: 'Potemkin',
-    thumb: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Potemkin-3.jpg/220px-Potemkin-3.jpg'
-  },
-  {
-    id: 'nBGbFlyTldY',
-    title: 'Freaks',
-    thumb: 'https://upload.wikimedia.org/wikipedia/en/5/5c/Freaks_%281932%29_-_poster.jpg'
-  },
-  {
-    id: 'oX3nh87sFuM',
-    title: '39 escalones',
-    thumb: 'https://upload.wikimedia.org/wikipedia/en/5/56/The_39_Steps_%281935_film%29.jpg'
-  }
+  {id: 'Taz5kwB8s8k', title: 'Metrópolis', info: '1927 | Fritz Lang | 2h 33m'},
+  {id: 'sZVL__aUamE', title: 'Noche de muertos', info: '1968 | George A. Romero | 1h 36m'},
+  {id: 'PxE_3AZxdLc', title: 'Potemkin', info: '1925 | Sergei Eisenstein | 1h 10m'},
+  {id: 'nBGbFlyTldY', title: 'Freaks', info: '1932 | Tod Browning | 1h 4m'},
+  {id: 'oX3nh87sFuM', title: '39 Escalones', info: '1935 | Alfred Hitchcock | 1h 21m'}
 ];
 
 const movieListEl = document.getElementById('movieList');
 
-movies.forEach((movie,i)=>{
+movies.forEach((movie, index) => {
   const div = document.createElement('div');
-  div.classList.add('movie-card');
-  div.innerHTML = `<img src="${movie.thumb}" alt="${movie.title}"><div class="movie-title">${movie.title}</div>`;
-  div.addEventListener('click', ()=> loadMovie(i));
+  div.classList.add('movie-item');
+  div.innerHTML = `<div class="movie-title">${movie.title}</div><div class="movie-info">${movie.info}</div>`;
+  div.addEventListener('click', () => loadMovie(index));
   movieListEl.appendChild(div);
 });
 
