@@ -3,46 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Música</title>
+<title>Mi Web de Música</title>
 <style>
+  /* Fuentes y resets */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
   body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1DB954, #1ED760);
+    color: #fff;
+  }
+
+  .player-container {
+    background: rgba(0,0,0,0.85);
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
     text-align: center;
-    padding: 50px;
-    background: linear-gradient(to right, #ff7e5f, #feb47b);
-    color: white;
+    width: 90%;
+    max-width: 500px;
   }
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin-bottom: 25px;
+    font-weight: 500;
+    color: #b3b3b3;
+  }
+
   audio {
-    width: 80%;
-    margin-top: 20px;
+    width: 100%;
+    border-radius: 12px;
+    outline: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   }
-  button {
-    margin: 10px;
-    padding: 10px 20px;
+
+  .controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .controls button {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
     font-size: 16px;
+    font-weight: 600;
+    color: #fff;
     cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+
+  .controls button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+
+  @media (max-width: 500px){
+    .controls {
+      flex-direction: column;
+      gap: 15px;
+    }
   }
 </style>
 </head>
 <body>
-<h1>Mi Web de Música</h1>
-<h2 id="song-title">A AP ROCKY LVL</h2>
 
-<audio id="player" controls>
-  <source src="https://raw.githubusercontent.com/poxynext/mp3-host/main/A%20AP%20ROCKY%20LVL.mp3" type="audio/mpeg">
-  Tu navegador no soporta audio.
-</audio>
+<div class="player-container">
+  <h1>Mi Web de Música</h1>
+  <h2 id="song-title">A AP ROCKY LVL</h2>
 
-<div>
-  <button id="prev">⏮️ Anterior</button>
-  <button id="next">⏭️ Siguiente</button>
+  <audio id="player" controls>
+    <source src="https://raw.githubusercontent.com/poxynext/mp3-host/main/A%20AP%20ROCKY%20LVL.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <div class="controls">
+    <button id="prev">⏮️ Anterior</button>
+    <button id="next">⏭️ Siguiente</button>
+  </div>
 </div>
 
 <script>
 const songs = [
-  {title: "A AP ROCKY LVL", url: "https://raw.githubusercontent.com/poxynext/mp3-host/main/LVL.mp3"},
-  // Aquí puedes añadir más canciones:
-  // {title: "Canción 2", url: "ENLACE_RAW_CANCION2"},
+  {title: "A AP ROCKY LVL", url: "https://raw.githubusercontent.com/poxynext/mp3-host/main/A%20AP%20ROCKY%20LVL.mp3"},
+  // Agrega más canciones aquí
+  // {title: "Canción 2", url: "URL_RAW_CANCION2"},
 ];
 
 let current = 0;
@@ -67,5 +133,6 @@ nextBtn.addEventListener('click', () => {
   loadSong(current);
 });
 </script>
+
 </body>
 </html>
