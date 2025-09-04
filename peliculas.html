@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MiniCine YouTube</title>
+<title>MiniCine Legal</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -35,30 +35,36 @@
 </div>
 
 <script>
-let player;
 const movies = [
   {
-    id: 'tgbNymZ7vqY', // Video de ejemplo
-    title: 'Película 1',
-    info: 'Director: John Doe | Duración: 1h 45m | Año: 2022',
-    img: 'https://via.placeholder.com/150'
+    id: 'Taz5kwB8s8k',
+    title: 'Metrópolis (1927)',
+    info: 'Director: Fritz Lang | Duración: 2h 33m | Año: 1927'
   },
   {
-    id: 'sNPnbI1arSE', 
-    title: 'Película 2',
-    info: 'Director: Jane Smith | Duración: 2h 10m | Año: 2021',
-    img: 'https://via.placeholder.com/150'
+    id: 'sZVL__aUamE',
+    title: 'La noche de los muertos vivientes (1968)',
+    info: 'Director: George A. Romero | Duración: 1h 36m | Año: 1968'
   },
   {
-    id: 'e-5obm1G_FY', 
-    title: 'Película 3',
-    info: 'Director: Mike Johnson | Duración: 1h 50m | Año: 2023',
-    img: 'https://via.placeholder.com/150'
+    id: 'PxE_3AZxdLc',
+    title: 'El acorazado Potemkin (1925)',
+    info: 'Director: Sergei Eisenstein | Duración: 1h 10m | Año: 1925'
+  },
+  {
+    id: 'nBGbFlyTldY',
+    title: 'Freaks (1932)',
+    info: 'Director: Tod Browning | Duración: 1h 4m | Año: 1932'
+  },
+  {
+    id: 'oX3nh87sFuM',
+    title: 'Los 39 escalones (1935)',
+    info: 'Director: Alfred Hitchcock | Duración: 1h 21m | Año: 1935'
   }
 ];
 
-// Generar lista
 const movieListEl = document.getElementById('movieList');
+
 movies.forEach((movie,i)=>{
   const div = document.createElement('div');
   div.classList.add('movie');
@@ -72,7 +78,6 @@ function loadMovie(index){
   document.getElementById('movieTitle').textContent = movie.title;
   document.getElementById('movieInfo').textContent = movie.info;
 
-  // Cargar video de YouTube
   document.getElementById('player').innerHTML = `<iframe width="100%" height="450" src="https://www.youtube.com/embed/${movie.id}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
 }
 </script>
