@@ -1,18 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Web de Música</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web de Música Interactiva</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: white;
+  }
+  audio {
+    width: 80%;
+    margin-top: 20px;
+  }
+  button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
 </head>
 <body>
-    <h1>Mi Web de Música</h1>
+<h1>Mi Web de Música</h1>
+<h2 id="song-title">A AP ROCKY LVL</h2>
 
-    <div class="song">
-        <p>🎵 A AP ROCKY LVL</p>
-        <audio controls>
-            <source src="https://raw.githubusercontent.com/poxynext/mp3-host/main/A%20AP%20ROCKY%20LVL.mp3" type="audio/mpeg">
-        </audio>
-    </div>
+<audio id="player" controls>
+  <source src="https://raw.githubusercontent.com/poxynext/mp3-host/main/A%20AP%20ROCKY%20LVL.mp3" type="audio/mpeg">
+  Tu navegador no soporta audio.
+</audio>
+
+<div>
+  <button id="prev">⏮️ Anterior</button>
+  <button id="next">⏭️ Siguiente</button>
+</div>
+
+<script>
+const songs = [
+  {title: "A AP ROCKY LVL", url: "https://raw.githubusercontent.com/poxynext/mp3-host/main/A%20AP%20ROCKY%20LVL.mp3"},
+  // Aquí puedes añadir más canciones:
+  // {title: "Canción 2", url: "ENLACE_RAW_CANCION2"},
+];
+
+let current = 0;
+const player = document.getElementById('player');
+const title = document.getElementById('song-title');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+
+function loadSong(index) {
+  player.src = songs[index].url;
+  title.textContent = songs[index].title;
+  player.play();
+}
+
+prevBtn.addEventListener('click', () => {
+  current = (current - 1 + songs.length) % songs.length;
+  loadSong(current);
+});
+
+nextBtn.addEventListener('click', () => {
+  current = (current + 1) % songs.length;
+  loadSong(current);
+});
+</script>
 </body>
 </html>
