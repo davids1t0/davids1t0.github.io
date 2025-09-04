@@ -3,23 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MiniCine PRO</title>
+<title>MiniCine Moderno</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto',sans-serif; }
-  body { background:#0f0f0f; color:#fff; }
-  header { background:#1c1c1c; padding:20px; text-align:center; font-size:32px; font-weight:bold; letter-spacing:2px; }
-  .container { display:flex; flex-wrap:wrap; padding:20px; gap:20px; justify-content:center; }
-  .movie-card { background:#1a1a1a; width:180px; border-radius:10px; overflow:hidden; cursor:pointer; transition:0.3s; }
+  body { background:#0d0d0d; color:#fff; }
+  header { background:#111; padding:20px; text-align:center; font-size:28px; font-weight:bold; letter-spacing:2px; }
+  .carousel-container { padding:20px; overflow-x:auto; white-space:nowrap; }
+  .movie-card { display:inline-block; width:180px; margin-right:15px; border-radius:10px; position:relative; cursor:pointer; transition:0.3s; }
+  .movie-card img { width:100%; height:270px; border-radius:10px; object-fit:cover; }
   .movie-card:hover { transform:scale(1.05); box-shadow:0 5px 20px rgba(0,255,0,0.5); }
-  .movie-card img { width:100%; height:270px; object-fit:cover; }
-  .movie-card .info { padding:10px; }
-  .movie-card .title { font-size:16px; font-weight:bold; margin-bottom:5px; }
-  .movie-card .year { font-size:12px; color:#aaa; }
+  .movie-title { position:absolute; bottom:10px; left:10px; right:10px; font-size:14px; font-weight:bold; text-shadow: 0 0 5px #000; }
   #player-container { display:flex; flex-direction:column; align-items:center; margin:20px; }
-  #player { width:100%; max-width:900px; height:500px; border-radius:10px; overflow:hidden; }
+  #player { width:100%; max-width:900px; height:500px; border-radius:10px; overflow:hidden; box-shadow:0 5px 20px rgba(0,255,0,0.3); }
   @media(max-width:768px){
-    .container { gap:10px; padding:10px; }
     .movie-card { width:140px; }
     .movie-card img { height:210px; }
     #player { height:300px; }
@@ -28,15 +25,13 @@
 </head>
 <body>
 
-<header>MiniCine PRO</header>
+<header>MiniCine Moderno</header>
 
-<div class="container" id="movieList">
+<div class="carousel-container" id="movieList">
   <!-- Miniaturas de películas -->
 </div>
 
 <div id="player-container">
-  <div id="player-title" style="font-size:24px; font-weight:bold; margin-bottom:10px;">Selecciona una película</div>
-  <div id="player-info" style="font-size:14px; color:#aaa; margin-bottom:10px;">Director, duración, año...</div>
   <div id="player"></div>
 </div>
 
@@ -44,32 +39,27 @@
 const movies = [
   {
     id: 'Taz5kwB8s8k',
-    title: 'Metrópolis (1927)',
-    info: 'Director: Fritz Lang | Duración: 2h 33m | Año: 1927',
+    title: 'Metrópolis',
     thumb: 'https://upload.wikimedia.org/wikipedia/en/5/50/Metropolis_1927_film.jpg'
   },
   {
     id: 'sZVL__aUamE',
-    title: 'La noche de los muertos vivientes (1968)',
-    info: 'Director: George A. Romero | Duración: 1h 36m | Año: 1968',
+    title: 'Noche de muertos',
     thumb: 'https://upload.wikimedia.org/wikipedia/en/2/21/Night_of_the_Living_Dead_%281968_film%29.jpg'
   },
   {
     id: 'PxE_3AZxdLc',
-    title: 'El acorazado Potemkin (1925)',
-    info: 'Director: Sergei Eisenstein | Duración: 1h 10m | Año: 1925',
+    title: 'Potemkin',
     thumb: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Potemkin-3.jpg/220px-Potemkin-3.jpg'
   },
   {
     id: 'nBGbFlyTldY',
-    title: 'Freaks (1932)',
-    info: 'Director: Tod Browning | Duración: 1h 4m | Año: 1932',
+    title: 'Freaks',
     thumb: 'https://upload.wikimedia.org/wikipedia/en/5/5c/Freaks_%281932%29_-_poster.jpg'
   },
   {
     id: 'oX3nh87sFuM',
-    title: 'Los 39 escalones (1935)',
-    info: 'Director: Alfred Hitchcock | Duración: 1h 21m | Año: 1935',
+    title: '39 escalones',
     thumb: 'https://upload.wikimedia.org/wikipedia/en/5/56/The_39_Steps_%281935_film%29.jpg'
   }
 ];
@@ -79,15 +69,13 @@ const movieListEl = document.getElementById('movieList');
 movies.forEach((movie,i)=>{
   const div = document.createElement('div');
   div.classList.add('movie-card');
-  div.innerHTML = `<img src="${movie.thumb}" alt="${movie.title}"><div class="info"><div class="title">${movie.title}</div><div class="year">${movie.info}</div></div>`;
+  div.innerHTML = `<img src="${movie.thumb}" alt="${movie.title}"><div class="movie-title">${movie.title}</div>`;
   div.addEventListener('click', ()=> loadMovie(i));
   movieListEl.appendChild(div);
 });
 
 function loadMovie(index){
   const movie = movies[index];
-  document.getElementById('player-title').textContent = movie.title;
-  document.getElementById('player-info').textContent = movie.info;
   document.getElementById('player').innerHTML = `<iframe width="100%" height="500" src="https://www.youtube.com/embed/${movie.id}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
 }
 </script>
