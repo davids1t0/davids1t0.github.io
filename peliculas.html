@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiniCine FB</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: #111;
+    color: #fff;
+  }
+  .sidebar {
+    position: fixed; left:0; top:0; bottom:0;
+    width:220px; background-color:rgba(0,0,0,0.8); padding:20px;
+    display:flex; flex-direction:column;
+    border-right:1px solid #222;
+  }
+  .sidebar h2 { color:#1877F2; margin-bottom:40px; font-size:28px; text-align:center; }
+  .sidebar .movie { color:#ccc; margin-bottom:20px; cursor:pointer; font-weight:bold; }
+  .sidebar .movie:hover { color:#fff; }
+  .main { margin-left:240px; padding:30px; }
+  .movie-title { font-size:24px; font-weight:bold; margin-bottom:15px; }
+  .movie-info { margin-bottom:20px; font-size:14px; color:#aaa; }
+  #fb-player { width:100%; max-width:800px; margin:0 auto; }
+  @media(max-width:768px){
+    .sidebar { position:relative; width:100%; display:flex; flex-direction:row; justify-content:space-around; padding:10px 0; border-right:none; border-bottom:1px solid #222; }
+    .main { margin-left:0; padding:15px; }
+  }
+</style>
+</head>
+<body>
 
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v17.0"></script>
+
+<div class="sidebar" id="movieList">
+  <h2>MiniCine</h2>
+  <!-- Lista de películas se generará aquí -->
+</div>
+
+<div class="main">
+  <div class="movie-title" id="movieTitle">Selecciona una película</div>
+  <div class="movie-info" id="movieInfo">Director, duración, año...</div>
+  <div id="fb-player"></div>
+</div>
+
+<script>
+const movies = [
+  {
+    href:'https://www.facebook.com/facebook/videos/10153231379946729/',
+    title:'Película 1',
+    info:'Director: John Doe | Duración: 1h 45m | Año: 2022'
+  },
+  {
+    href:'https://www.facebook.com/facebook/videos/10153231379946730/',
+    title:'Película 2',
+    info:'Director: Jane Smith | Duración: 2h 10m | Año: 2021'
+  },
+  {
+    href:'https://www.facebook.com/facebook/videos/10153231379946731/',
+    title:'Película 3',
+    info:'Director: Mike Johnson | Duración: 1h 50m | Año: 2023'
+  }
+];
+
+// Generar lista en sidebar
+const movieListEl = document.getElementById('movieList');
+movies.forEach((movie,i)=>{
+  const div = document.createElement('div');
+  div.classList.add('movie');
+  div.textContent = movie.title;
+  div.addEventListener('click', ()=>{
+    document.getElementById('movieTitle').textContent = movie.title;
+    document.getElementById('movieInfo').textContent = movie.info;
+    loadFBVideo(movie.href);
+  });
+  movieListEl.appendChild(div);
+});
+
+function loadFBVideo(href){
+  const playerContainer = document.getElementById('fb-player');
+  playerContainer.innerHTML = `<div class="fb-video" data-href="${href}" data-width="800" data-show-text="false"></div>`;
+  if(FB) FB.XFBML.parse(playerContainer); // Recargar plugin de FB
+}
+</script>
+
+</body>
+</html>
