@@ -2,43 +2,78 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mi Reproductor de Música</title>
+  <title>El Dueño Del Palenque</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-      color: white;
-      text-align: center;
-      padding-top: 80px;
+    /* Reset */
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1.2s ease;
+    }
+
     h1 {
+      font-size: 2em;
       margin-bottom: 20px;
-      text-shadow: 1px 1px 2px #000;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      color: #ffcc00;
     }
-    .player {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      border-radius: 15px;
-      display: inline-block;
-      box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
-    }
+
     iframe {
-      border-radius: 10px;
-      width: 360px;
-      height: 215px;
+      border-radius: 15px;
+      width: 400px;
+      height: 225px;
+      border: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    iframe:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 6px 20px rgba(0,0,0,0.7);
+    }
+
+    .footer {
+      margin-top: 15px;
+      font-size: 0.9em;
+      color: #ddd;
+      opacity: 0.8;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <h1>🎶 Mi canción favorita: El Dueño Del Palenque 🎶</h1>
-  <div class="player">
+  <div class="container">
+    <h1>🎶 El Dueño Del Palenque 🎶</h1>
     <iframe 
       src="https://www.youtube.com/embed/CZIwj-ytRHo?autoplay=0&controls=1"
-      frameborder="0" 
       allow="autoplay; encrypted-media" 
       allowfullscreen>
     </iframe>
+    <p class="footer">Disfruta de esta rola con estilo 🔥</p>
   </div>
 </body>
 </html>
+
