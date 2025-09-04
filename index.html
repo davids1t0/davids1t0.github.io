@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>El Dueño Del Palenque</title>
   <style>
     /* Reset */
@@ -35,8 +36,8 @@
     }
 
     h1 {
-      font-size: 2em;
-      margin-bottom: 20px;
+      font-size: 2.2em;
+      margin-bottom: 25px;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
       color: #ffcc00;
     }
@@ -74,6 +75,14 @@
       object-fit: cover;
       border-radius: 15px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: linear-gradient(45deg, #2c3e50, #4a235a);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 16px;
+      text-align: center;
+      padding: 15px;
     }
     
     .artist-image:hover {
@@ -84,13 +93,14 @@
     .image-container p {
       margin-top: 10px;
       font-style: italic;
+      color: #ffcc00;
     }
 
     .footer {
-      margin-top: 15px;
-      font-size: 0.9em;
+      margin-top: 25px;
+      font-size: 1em;
       color: #ddd;
-      opacity: 0.8;
+      opacity: 0.9;
     }
 
     @keyframes fadeIn {
@@ -103,12 +113,16 @@
         flex-direction: column;
         align-items: center;
       }
+      
+      h1 {
+        font-size: 1.8em;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>🎶 Música a las órdenes de David 🎶</h1>
+    <h1>🎶 A las órdenes de David 🎶</h1>
     
     <div class="content">
       <div class="video-container">
@@ -117,10 +131,13 @@
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
           allowfullscreen>
         </iframe>
+        <p>Video oficial</p>
       </div>
       
       <div class="image-container">
-        <img src="https://images.genius.com/9b873ed4c993c5c6a7d7544d2d6c6c7a.1000x1000x1.jpg" alt="ASAP Rocky" class="artist-image">
+        <div class="artist-image">
+          Para mostrar una imagen de ASAP Rocky, por favor sube una imagen a tu servidor y actualiza la URL en el código
+        </div>
         <p>ASAP Rocky</p>
       </div>
     </div>
