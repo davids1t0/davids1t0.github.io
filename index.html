@@ -918,6 +918,47 @@
     // Inicializar
     loadSong(current);
     initPlaylist();
+    // Pedir permiso al usuario para notificaciones del navegador
+if ("Notification" in window && Notification.permission !== "granted") {
+    Notification.requestPermission();
+}
+
+// Mostrar notificación nativa (navegador)
+function showBrowserNotification(song) {
+    if (!("Notification" in window)) return;
+
+    if (Notification.permission === "granted") {
+        new Notification("Reproduciendo 🎶", {
+            body: `${song.title} - ${song.artist}`,
+            icon: song.image || "https://cdn-icons-png.flaticon.com/512/727/727245.png"
+        });
+    }
+}
+
+// Modificar tu función showNotification
+function showNotification() {
+    const song = songs[current];
+
+    // Notificación interna (div animado)
+    notificationTitle.textContent = song.title;
+    notificationArtist.textContent = song.artist;
+
+    if (song.image) {
+        notificationImage.innerHTML = `<img src="${song.image}" alt="${song.title}">`;
+    } else {
+        notificationImage.innerHTML = '<i class="fas fa-music"></i>';
+    }
+
+    notification.classList.add('show');
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 5000);
+
+    // También mandar notificación del navegador
+    if (document.hidden) {
+        showBrowserNotification(song);
+    }
+}
 </script>
 
 </body>
