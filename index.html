@@ -959,6 +959,67 @@ function showNotification() {
         showBrowserNotification(song);
     }
 }
+    // Inicializar Media Session API
+if ("mediaSession" in navigator) {
+    function updateMediaSession(song) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: song.title,
+            artist: song.artist,
+            album: "Mi Playlist",
+            artwork: [
+                { src: song.image || "https://cdn-icons-png.flaticon.com/512/727/727245.png", sizes: "512x512", type: "image/png" }
+            ]
+        });
+
+        // Acciones de control (desde notificación, auriculares o Android Auto)
+        navigator.mediaSession.setActionHandler("play", () => {
+            audio.play();
+        });
+        navigator.mediaSession.setActionHandler("pause", () => {
+            audio.pause();
+        });
+        navigator.mediaSession.setActionHandler("previoustrack", () => {
+            prevSong();
+        });
+        navigator.mediaSession.setActionHandler("nexttrack", () => {
+            nextSong();
+        });
+    }
+}
+
+// Función para mostrar notificación
+function showNotification() {
+    const song = songs[current];
+
+    // Actualizar notificación interna (tu div animado)
+    notificationTitle.textContent = song.title;
+    notificationArtist.textContent = song.artist;
+
+    if (song.image) {
+        notificationImage.innerHTML = `<img src="${song.image}" alt="${song.title}">`;
+    } else {
+        notificationImage.innerHTML = '<i class="fas fa-music"></i>';
+    }
+
+    notification.classList.add('show');
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 5000);
+
+    // Notificación del navegador (solo si la pestaña está en segundo plano)
+    if ("Notification" in window && Notification.permission === "granted" && document.hidden) {
+        new Notification("Reproduciendo 🎶", {
+            body: `${song.title} - ${song.artist}`,
+            icon: song.image || "https://cdn-icons-png.flaticon.com/512/727/727245.png"
+        });
+    }
+
+    // Actualizar Media Session API (para los controles en la notificación)
+    if ("mediaSession" in navigator) {
+        updateMediaSession(song);
+    }
+}
+
 </script>
 
 </body>
