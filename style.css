@@ -35,6 +35,7 @@ body {
   color: var(--color-text);
   line-height: 1.6;
   overflow-x: hidden;
+  padding-top: 160px; /* Espacio para navbar y categorías fijas */
 }
 
 .container {
@@ -49,10 +50,12 @@ body {
 .navbar {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
-  padding: 18px 0;
+  padding: 15px 0;
   border-bottom: 1px solid var(--color-border);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
   box-shadow: 0 4px 20px rgba(0, 255, 156, 0.1);
 }
@@ -63,16 +66,28 @@ body {
   align-items: center;
 }
 
+/* Logo y nombre en columna */
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
 .logo {
-  height: 55px;
+  height: 50px;
   transition: var(--transition);
   filter: drop-shadow(0 0 15px rgba(0, 255, 156, 0.6));
   border-radius: 12px;
 }
 
-.logo:hover {
-  transform: scale(1.1) rotate(-2deg);
-  filter: drop-shadow(0 0 20px rgba(0, 255, 156, 0.8));
+.brand-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
 }
 
 .nav-links {
@@ -156,14 +171,66 @@ body {
 }
 
 /* -----------------------------
+           CATEGORÍAS FIJAS
+------------------------------*/
+.categories-nav {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(15px);
+  padding: 15px 0;
+  border-bottom: 1px solid var(--color-border);
+  position: fixed;
+  top: 80px; /* Altura del navbar */
+  left: 0;
+  right: 0;
+  z-index: 999;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.categories-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  padding: 10px 20px;
+  background: transparent;
+  border: 2px solid var(--color-border);
+  border-radius: 25px;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.category-btn:hover {
+  background: var(--gradient-primary);
+  color: white;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.category-btn.active {
+  background: var(--gradient-primary);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(0, 255, 156, 0.3);
+}
+
+/* -----------------------------
                HERO
 ------------------------------*/
 .hero {
   background: var(--gradient-hero);
-  padding: 120px 20px;
+  padding: 100px 20px;
   text-align: center;
   position: relative;
   overflow: hidden;
+  margin-top: 0; /* Ya no necesita margen porque el body tiene padding-top */
 }
 
 .hero::before {
@@ -190,7 +257,7 @@ body {
 
 .hero h1 {
   margin: 0;
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 900;
   background: linear-gradient(135deg, #ffffff, #00ff9c);
   -webkit-background-clip: text;
@@ -202,7 +269,7 @@ body {
 }
 
 .hero p {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.9);
   max-width: 600px;
   margin: 0 auto 40px;
@@ -214,7 +281,7 @@ body {
              PRODUCTOS
 ------------------------------*/
 .products {
-  padding: 100px 20px;
+  padding: 80px 20px;
   position: relative;
 }
 
@@ -230,7 +297,7 @@ body {
 }
 
 .products h2 {
-  font-size: 3rem;
+  font-size: 2.8rem;
   font-weight: 900;
   text-align: center;
   margin-bottom: 25px;
@@ -370,7 +437,7 @@ body {
   left: 0;
   color: var(--color-primary);
   font-weight: 800;
-  background: var(--color-primary-light);
+  background: rgba(0, 255, 156, 0.1);
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -430,16 +497,6 @@ body {
 
 .btn-secondary:hover {
   box-shadow: 0 10px 30px rgba(255, 107, 157, 0.6);
-}
-
-.btn-warning {
-  background: var(--color-warning);
-  color: var(--color-text);
-  box-shadow: 0 6px 20px rgba(255, 209, 102, 0.4);
-}
-
-.btn-warning:hover {
-  box-shadow: 0 10px 30px rgba(255, 209, 102, 0.6);
 }
 
 /* -----------------------------
@@ -507,68 +564,35 @@ footer::before {
 }
 
 /* -----------------------------
-         ELEMENTOS EXTRAS
-------------------------------*/
-.floating-elements {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.floating-element {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  background: var(--gradient-primary);
-  border-radius: 50%;
-  opacity: 0.1;
-  animation: floatElement 20s infinite linear;
-}
-
-.floating-element:nth-child(1) {
-  top: 20%;
-  left: 10%;
-  animation-delay: 0s;
-  background: var(--gradient-primary);
-}
-
-.floating-element:nth-child(2) {
-  top: 60%;
-  right: 10%;
-  animation-delay: -5s;
-  background: var(--gradient-secondary);
-}
-
-.floating-element:nth-child(3) {
-  bottom: 20%;
-  left: 20%;
-  animation-delay: -10s;
-  background: var(--color-warning);
-}
-
-@keyframes floatElement {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  33% {
-    transform: translateY(-30px) rotate(120deg);
-  }
-  66% {
-    transform: translateY(30px) rotate(240deg);
-  }
-}
-
-/* -----------------------------
          RESPONSIVE DESIGN
 ------------------------------*/
 @media (max-width: 768px) {
+  body {
+    padding-top: 180px; /* Más espacio para navbar y categorías en móvil */
+  }
+  
   .navbar .container {
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
+  }
+  
+  .brand {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .categories-nav {
+    top: 120px; /* Más espacio en móvil */
+    padding: 12px 0;
+  }
+  
+  .categories-container {
+    gap: 8px;
+  }
+  
+  .category-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
   }
   
   .nav-links {
@@ -583,15 +607,15 @@ footer::before {
   }
   
   .hero h1 {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
   }
   
   .hero p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   
   .products h2 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
   
   .product-grid {
@@ -606,16 +630,20 @@ footer::before {
 }
 
 @media (max-width: 480px) {
+  body {
+    padding-top: 200px; /* Aún más espacio en móviles pequeños */
+  }
+  
   .hero {
-    padding: 80px 20px;
+    padding: 60px 20px;
   }
   
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   
   .products h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   
   .btn {
@@ -626,4 +654,8 @@ footer::before {
   .product {
     padding: 20px;
   }
-       }
+  
+  .categories-nav {
+    top: 140px;
+  }
+     }
