@@ -1,123 +1,127 @@
-/* ============================
-   GENERAL
-============================ */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 body {
-  background: radial-gradient(circle at top, #1a1a1a, #000);
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  background: #0f0f0f url('https://i.imgur.com/ODakj7W.jpeg') center/cover fixed;
   color: white;
-  overflow-x: hidden;
 }
 
-/* ============================
-   PARTICULAS FONDO
-============================ */
-#particles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-/* ============================
-   NAVBAR
-============================ */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.logo {
-  font-size: 28px;
-  font-weight: 700;
-  color: #00ffcc;
-  text-shadow: 0 0 10px #00ffaa;
-}
-
-.navbar nav a {
-  margin: 0 12px;
-  text-decoration: none;
-  color: #ccc;
-  transition: 0.3s;
-}
-
-.navbar nav a:hover,
-.navbar nav a.active {
-  color: #00ffcc;
-  text-shadow: 0 0 10px #00ffaa;
-}
-
-/* ============================
-   HERO SECTION
-============================ */
-.hero {
+/* HEADER */
+.store-header {
   text-align: center;
-  padding: 150px 20px;
+  padding: 60px 20px;
+  background: rgba(0,0,0,0.6);
+  border-bottom: 4px solid #00ff80;
 }
 
-.hero h1 {
-  font-size: 60px;
-  font-weight: 700;
+.server-logo {
+  width: 120px;
+  image-rendering: pixelated;
 }
 
-.neon {
-  color: #00ffcc;
-  text-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffaa;
+.server-title {
+  font-size: 48px;
+  color: #00ff80;
+  text-shadow: 0 0 10px #00ff80, 0 0 20px #00ff80;
+  margin: 10px 0;
 }
 
-.hero p {
-  margin-top: 15px;
-  font-size: 20px;
-  color: #eee;
+.server-sub {
+  color: #ddd;
+  font-size: 18px;
 }
 
-/* BOTÓN NEÓN */
-.btn-neon {
-  display: inline-block;
-  margin-top: 40px;
-  padding: 14px 30px;
-  background: #00ffcc;
-  color: #000;
-  font-weight: 600;
-  border-radius: 8px;
+/* CATEGORY BUTTONS */
+.categories {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.category-btn {
+  background: #1b1b1b;
+  padding: 12px 20px;
+  margin: 5px;
+  color: #00ff80;
+  border: 2px solid #00ff80;
   text-decoration: none;
-  box-shadow: 0 0 20px #00ffcc;
-  transition: 0.3s;
+  border-radius: 4px;
+  font-weight: 600;
+  box-shadow: 0 0 10px #00ff80;
+  transition: 0.2s;
 }
 
-.btn-neon:hover {
-  box-shadow: 0 0 35px #00ffaa, 0 0 50px #00ffcc;
-  transform: translateY(-4px);
+.category-btn:hover {
+  background: #00ff80;
+  color: black;
+  transform: scale(1.05);
 }
 
-/* ============================
-   CARDS PROFESIONALES
-============================ */
-.card {
-  background: rgba(255,255,255,0.07);
-  border-radius: 15px;
-  padding: 25px;
-  margin: 20px 0;
-  transition: 0.3s;
-  border: 1px solid rgba(255,255,255,0.15);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 0 20px rgba(0,255,200,0.05);
+/* PRODUCT GRID */
+.section-title {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 50px;
+  text-shadow: 0 0 10px #00ff80;
 }
 
-.card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 0 25px rgba(0,255,200,0.15);
+.product-grid {
+  max-width: 1200px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
+}
+
+/* PRODUCT CARD */
+.product-card {
+  background: rgba(15,15,15,0.85);
+  border: 3px solid #00ff80;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  transition: 0.2s;
+  position: relative;
+  box-shadow: 0 0 15px #00ff80;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-img {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  image-rendering: pixelated;
+}
+
+.product-desc {
+  font-size: 14px;
+  color: #bbbbbb;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: 700;
+  color: #00ff80;
+  margin: 10px 0;
+}
+
+/* BUY BUTTON */
+.buy-btn {
+  display: inline-block;
+  background: #00ff80;
+  padding: 12px 20px;
+  color: black;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
+.buy-btn:hover {
+  background: #00ffaa;
+  transform: translateY(-3px);
 }
