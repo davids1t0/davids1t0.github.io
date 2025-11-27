@@ -1,20 +1,20 @@
 /* -----------------------------
      FUENTES Y CONFIGURACIÓN
 ------------------------------*/
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap');
 
 :root {
-  --color-primary: #00ff9c;  /* Verde neón Tottaland */
-  --color-primary-dark: #02c774;
-  --color-text: #2a2a2a;
-  --color-bg: #f4f6f8;
-  --color-card-bg: #ffffff;
+  --color-primary: #00ff9c;
+  --color-dark: #0a0f0c;
+  --color-text: #1c1c1c;
+  --color-bg: #eef2f3;
+  --color-white: #ffffff;
 }
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
   background: var(--color-bg);
+  font-family: 'Poppins', sans-serif;
   color: var(--color-text);
 }
 
@@ -22,148 +22,160 @@ body {
               NAVBAR
 ------------------------------*/
 .navbar {
-  background: #ffffff;
-  padding: 15px 0;
-  border-bottom: 1px solid #e0e0e0;
+  width: 100%;
+  background: var(--color-white);
+  padding: 12px 0;
+  border-bottom: 1px solid #d7d7d7;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .navbar .container {
-  width: 93%;
+  width: 90%;
   margin: auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
-  height: 55px;
-  filter: drop-shadow(0 0 6px rgba(0, 255, 156, 0.4));
+  height: 60px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px rgba(0,255,155,0.35));
+  border-radius: 5px;
 }
 
 .nav-links a {
-  margin: 0 18px;
-  color: var(--color-text);
+  margin: 0 15px;
   text-decoration: none;
+  color: #333;
   font-weight: 600;
-  transition: 0.2s;
+  transition: 0.25s;
 }
 
 .nav-links a:hover,
 .nav-links .active {
   color: var(--color-primary);
+  text-shadow: 0 0 8px rgba(0,255,155,0.4);
 }
 
-/* Carrito */
 .carrito {
-  font-size: 1.4rem;
+  font-size: 22px;
 }
 
 /* -----------------------------
-               HERO
+              HERO
 ------------------------------*/
 .hero {
-  background: linear-gradient(to bottom, white, #eef2f4);
-  padding: 75px 20px;
+  padding: 60px 20px 40px;
+  background: linear-gradient(#ffffff, #e8ecef);
   text-align: center;
-  border-bottom: 1px solid #dcdcdc;
 }
 
 .hero h1 {
   margin: 0;
-  font-size: 3rem;
+  font-size: 3.2rem;
   font-weight: 900;
-  color: var(--color-primary-dark);
-  text-shadow: 0 0 10px rgba(0,255,156,0.3);
+  color: var(--color-dark);
+  letter-spacing: -1px;
 }
 
 .hero p {
-  margin-top: 12px;
   font-size: 1.2rem;
-  color: #555;
+  margin-top: 10px;
+  color: #444;
 }
 
 /* -----------------------------
-             PRODUCTOS
+           PRODUCTOS
 ------------------------------*/
 .products {
-  padding: 50px 20px;
+  padding: 40px 20px;
   text-align: center;
 }
 
 .products h2 {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--color-dark);
+  text-shadow: 0 0 8px rgba(0,0,0,0.05);
 }
 
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 35px;
-  margin-top: 40px;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .product {
-  background: var(--color-card-bg);
+  background: var(--color-white);
+  padding: 22px;
   border-radius: 14px;
-  padding: 25px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.06);
+  border: 1px solid #dcdcdc;
   transition: 0.25s;
-  border: 1px solid #e5e5e5;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.06);
 }
 
 .product:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 7px 25px rgba(0,0,0,0.12);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
   border-color: var(--color-primary);
 }
 
 .product img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .product h3 {
-  margin: 15px 0 10px;
+  margin: 15px 0 8px;
+  font-size: 1.4rem;
 }
 
+/* LISTA DE BENEFICIOS */
 .list {
   text-align: left;
   padding-left: 20px;
-  margin-bottom: 15px;
 }
 
 .list li {
   margin: 6px 0;
+  font-size: 0.95rem;
 }
 
-/* -----------------------------
-               BOTONES
-------------------------------*/
+/* BOTÓN */
 .btn {
   display: inline-block;
   padding: 12px 22px;
   background: var(--color-primary);
-  color: black;
-  border-radius: 10px;
+  border-radius: 12px;
   text-decoration: none;
+  color: #000;
   font-weight: 700;
+  margin-top: 10px;
   transition: 0.2s;
-  box-shadow: 0 0 10px rgba(0,255,156,0.4);
+  box-shadow: 0 0 12px rgba(0,255,155,0.45);
 }
 
 .btn:hover {
-  background: var(--color-primary-dark);
-  box-shadow: 0 0 18px rgba(0,255,156,0.6);
+  background: #02d486;
+  box-shadow: 0 0 18px rgba(0,255,155,0.7);
 }
 
 /* -----------------------------
-               FOOTER
+              FOOTER
 ------------------------------*/
 footer {
   background: #ffffff;
   margin-top: 40px;
-  padding: 18px;
+  padding: 20px;
   text-align: center;
+  border-top: 1px solid #d0d0d0;
+  color: #333;
   font-weight: 600;
-  border-top: 1px solid #e0e0e0;
 }
