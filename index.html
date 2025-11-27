@@ -1,58 +1,126 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TOTTALAND STORE</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Servidor Minecraft</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo del Servidor">
+        </div>
+        <nav>
+            <ul class="nav-tabs">
+                <li><a href="#inicio" class="tab-link active">Inicio</a></li>
+                <li><a href="#rangos" class="tab-link">Rangos</a></li>
+                <li><a href="#tienda" class="tab-link">Tienda</a></li>
+                <li><a href="#reglas" class="tab-link">Reglas</a></li>
+                <li><a href="#staff" class="tab-link">Staff</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header class="store-header">
-  <img src="https://i.imgur.com/7m2pZqX.png" class="server-logo" alt="">
-  <h1 class="server-title">TOTTALAND STORE</h1>
-  <p class="server-sub">Rangos • Cosméticos • Crates • Llaves</p>
-</header>
+    <!-- Contenido Principal -->
+    <main>
+        <!-- Sección Inicio -->
+        <section id="inicio" class="tab-content active">
+            <div class="hero">
+                <h1>Bienvenido a [Nombre del Servidor]</h1>
+                <p>IP: <span class="ip">tuserver.minecraft.com</span></p>
+                <button class="copy-ip">Copiar IP</button>
+            </div>
+        </section>
 
-<section class="categories">
-  <a href="rangos.html" class="category-btn">Rangos</a>
-  <a href="cosmeticos.html" class="category-btn">Cosméticos</a>
-  <a href="llaves.html" class="category-btn">Llaves y Crates</a>
-  <a href="soporte.html" class="category-btn">Soporte</a>
-</section>
+        <!-- Sección Rangos -->
+        <section id="rangos" class="tab-content">
+            <h2>Rangos Cosméticos</h2>
+            <div class="rangos-grid">
+                <!-- Rango 1 -->
+                <div class="rango-card">
+                    <img src="images/rangos/basico.png" alt="Rango Básico">
+                    <h3>Visitante</h3>
+                    <p>• Prefix color verde</p>
+                    <p>• Partículas básicas</p>
+                    <p>• 1 mascota cosmética</p>
+                    <button class="comprar-btn">Gratis</button>
+                </div>
 
-<section class="products">
+                <!-- Rango 2 -->
+                <div class="rango-card">
+                    <img src="images/rangos/premium.png" alt="Rango Premium">
+                    <h3>Premium</h3>
+                    <p>• Prefix color dorado</p>
+                    <p>• Partículas especiales</p>
+                    <p>• 3 mascotas cosméticas</p>
+                    <p>• Wings decorativas</p>
+                    <button class="comprar-btn">$5.00</button>
+                </div>
 
-  <h2 class="section-title">🔥 Rangos Destacados</h2>
+                <!-- Rango 3 -->
+                <div class="rango-card">
+                    <img src="images/rangos/vip.png" alt="Rango VIP">
+                    <h3>VIP</h3>
+                    <p>• Prefix color arcoíris</p>
+                    <p>• Partículas épicas</p>
+                    <p>• 5 mascotas cosméticas</p>
+                    <p>• Wings animadas</p>
+                    <p>• Trajes exclusivos</p>
+                    <button class="comprar-btn">$10.00</button>
+                </div>
 
-  <div class="product-grid">
+                <!-- Rango 4 -->
+                <div class="rango-card">
+                    <img src="images/rangos/mythic.png" alt="Rango Mythic">
+                    <h3>Mythic</h3>
+                    <p>• Prefix personalizado</p>
+                    <p>• Partículas legendarias</p>
+                    <p>• Mascotas ilimitadas</p>
+                    <p>• Wings legendarias</p>
+                    <p>• Trajes animados</p>
+                    <button class="comprar-btn">$20.00</button>
+                </div>
+            </div>
+        </section>
 
-    <div class="product-card">
-      <img src="https://i.imgur.com/C0zjKSc.png" class="product-img">
-      <h3>VIP</h3>
-      <p class="product-desc">Prefijo exclusivo • Kit VIP • /hat</p>
-      <p class="price">$4.99</p>
-      <a href="#" class="buy-btn">Comprar</a>
-    </div>
+        <!-- Sección Tienda -->
+        <section id="tienda" class="tab-content">
+            <h2>Tienda</h2>
+            <p>Compra monedas y otros items para el servidor</p>
+            <!-- Aquí puedes agregar botones de PayPal o enlaces a tu tienda -->
+        </section>
 
-    <div class="product-card">
-      <img src="https://i.imgur.com/J7AE4jW.png" class="product-img">
-      <h3>VIP+</h3>
-      <p class="product-desc">Todo lo del VIP + /craft + /heal</p>
-      <p class="price">$9.99</p>
-      <a href="#" class="buy-btn">Comprar</a>
-    </div>
+        <!-- Sección Reglas -->
+        <section id="reglas" class="tab-content">
+            <h2>Reglas del Servidor</h2>
+            <div class="reglas-list">
+                <div class="regla-item">
+                    <h3>1. Respeto</h3>
+                    <p>No insultar o faltar el respeto a otros jugadores</p>
+                </div>
+                <div class="regla-item">
+                    <h3>2. No Hacks</h3>
+                    <p>Prohibido el uso de cualquier mod ilegal</p>
+                </div>
+                <!-- Agrega más reglas -->
+            </div>
+        </section>
 
-    <div class="product-card">
-      <img src="https://i.imgur.com/WbM3tMT.png" class="product-img">
-      <h3>MVP</h3>
-      <p class="product-desc">Rango completo con perks avanzados</p>
-      <p class="price">$14.99</p>
-      <a href="#" class="buy-btn">Comprar</a>
-    </div>
+        <!-- Sección Staff -->
+        <section id="staff" class="tab-content">
+            <h2>Nuestro Staff</h2>
+            <div class="staff-grid">
+                <!-- Miembros del staff -->
+            </div>
+        </section>
+    </main>
 
-  </div>
-</section>
+    <footer>
+        <p>&copy; 2024 [Nombre del Servidor]. Todos los derechos reservados.</p>
+    </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
