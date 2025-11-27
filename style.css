@@ -1,0 +1,169 @@
+/* -----------------------------
+     FUENTES Y CONFIGURACIÓN
+------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+
+:root {
+  --color-primary: #00ff9c;  /* Verde neón Tottaland */
+  --color-primary-dark: #02c774;
+  --color-text: #2a2a2a;
+  --color-bg: #f4f6f8;
+  --color-card-bg: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* -----------------------------
+              NAVBAR
+------------------------------*/
+.navbar {
+  background: #ffffff;
+  padding: 15px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.navbar .container {
+  width: 93%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 55px;
+  filter: drop-shadow(0 0 6px rgba(0, 255, 156, 0.4));
+}
+
+.nav-links a {
+  margin: 0 18px;
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+  color: var(--color-primary);
+}
+
+/* Carrito */
+.carrito {
+  font-size: 1.4rem;
+}
+
+/* -----------------------------
+               HERO
+------------------------------*/
+.hero {
+  background: linear-gradient(to bottom, white, #eef2f4);
+  padding: 75px 20px;
+  text-align: center;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--color-primary-dark);
+  text-shadow: 0 0 10px rgba(0,255,156,0.3);
+}
+
+.hero p {
+  margin-top: 12px;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* -----------------------------
+             PRODUCTOS
+------------------------------*/
+.products {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.products h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 35px;
+  margin-top: 40px;
+}
+
+.product {
+  background: var(--color-card-bg);
+  border-radius: 14px;
+  padding: 25px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.06);
+  transition: 0.25s;
+  border: 1px solid #e5e5e5;
+}
+
+.product:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 7px 25px rgba(0,0,0,0.12);
+  border-color: var(--color-primary);
+}
+
+.product img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.product h3 {
+  margin: 15px 0 10px;
+}
+
+.list {
+  text-align: left;
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.list li {
+  margin: 6px 0;
+}
+
+/* -----------------------------
+               BOTONES
+------------------------------*/
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  background: var(--color-primary);
+  color: black;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.2s;
+  box-shadow: 0 0 10px rgba(0,255,156,0.4);
+}
+
+.btn:hover {
+  background: var(--color-primary-dark);
+  box-shadow: 0 0 18px rgba(0,255,156,0.6);
+}
+
+/* -----------------------------
+               FOOTER
+------------------------------*/
+footer {
+  background: #ffffff;
+  margin-top: 40px;
+  padding: 18px;
+  text-align: center;
+  font-weight: 600;
+  border-top: 1px solid #e0e0e0;
+}
