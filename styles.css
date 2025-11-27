@@ -1,0 +1,123 @@
+/* ============================
+   GENERAL
+============================ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #1a1a1a, #000);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ============================
+   PARTICULAS FONDO
+============================ */
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* ============================
+   NAVBAR
+============================ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffaa;
+}
+
+.navbar nav a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: #ccc;
+  transition: 0.3s;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffaa;
+}
+
+/* ============================
+   HERO SECTION
+============================ */
+.hero {
+  text-align: center;
+  padding: 150px 20px;
+}
+
+.hero h1 {
+  font-size: 60px;
+  font-weight: 700;
+}
+
+.neon {
+  color: #00ffcc;
+  text-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffaa;
+}
+
+.hero p {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #eee;
+}
+
+/* BOTÓN NEÓN */
+.btn-neon {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 14px 30px;
+  background: #00ffcc;
+  color: #000;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 0 20px #00ffcc;
+  transition: 0.3s;
+}
+
+.btn-neon:hover {
+  box-shadow: 0 0 35px #00ffaa, 0 0 50px #00ffcc;
+  transform: translateY(-4px);
+}
+
+/* ============================
+   CARDS PROFESIONALES
+============================ */
+.card {
+  background: rgba(255,255,255,0.07);
+  border-radius: 15px;
+  padding: 25px;
+  margin: 20px 0;
+  transition: 0.3s;
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(0,255,200,0.05);
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 0 25px rgba(0,255,200,0.15);
+}
