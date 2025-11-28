@@ -13,7 +13,10 @@
   <!-- NAVBAR -->
   <nav class="navbar">
     <div class="container">
-      <img src="img/logo.png" class="logo">
+      <div class="brand">
+        <img src="img/logo.png" class="logo">
+        <span class="brand-name">TOTTALAND STORE</span>
+      </div>
       <div class="nav-links">
         <a href="index.html">Inicio</a>
         <a href="rangos.html">Rangos</a>
@@ -26,14 +29,28 @@
     </div>
   </nav>
 
+  <!-- CATEGORÍAS FIJAS -->
+  <nav class="categories-nav">
+    <div class="categories-container">
+      <a href="#rangos" class="category-btn active">Todos los Productos</a>
+      <a href="#vip" class="category-btn">Rangos VIP</a>
+      <a href="#cosmeticos" class="category-btn">Cosméticos</a>
+      <a href="#cajas" class="category-btn">Cajas Misteriosas</a>
+      <a href="#ofertas" class="category-btn">Ofertas Especiales</a>
+    </div>
+  </nav>
+
   <!-- HERO -->
   <header class="hero">
-    <h1>TOTTALAND STORE</h1>
-    <p>Compra rangos, cosméticos y cajas para mejorar tu experiencia en el servidor.</p>
+    <div class="hero-content">
+      <h1>Bienvenido a Tottaland</h1>
+      <p>Compra rangos, cosméticos y cajas para mejorar tu experiencia en el servidor.</p>
+      <a href="#productos" class="btn">Ver Productos</a>
+    </div>
   </header>
 
   <!-- DESTACADOS -->
-  <section class="products">
+  <section class="products" id="productos">
     <h2>Productos Destacados</h2>
 
     <div class="product-grid">
